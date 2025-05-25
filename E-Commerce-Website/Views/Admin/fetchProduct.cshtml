@@ -1,0 +1,38 @@
+﻿@model List<Product>
+<div class="container-fluid px-4">
+	<h2 class="mt-4 text-center text-uppercase" style="letter-spacing:4px">
+		All Product
+	</h2>
+</div>
+<div class="row">
+	<div class="col-md-12">
+		<a asp-action="addProduct" asp-controller="admin" class="btn btn-primary">Add New Product</a>
+		<table class="table table-bordered table-striped text-center mt-2">
+			<thead>
+				<tr>
+					<th>Product Name</th>
+					<th>Product Description</th>
+					<th>Product Image</th>
+				</tr>
+			</thead>
+			<tbody>
+				@foreach (var cat in Model)
+				{
+					<tr>
+						<td>@cat.Product_Name</td>
+						<td>@cat.Product_Description</td>
+						<td>
+							<img src="@("~/Product_Images/"+cat.Product_Image)" asp-append-version="true" width="50px" height="50px" />
+						</td>
+						<td>
+							<a href="@Url.Action("ProductDetails","admin",new{id=@cat.Product_Id})" class="btn btn-primary">Details</a>
+							<a href="@Url.Action("DeleteParmissionProduct","admin",new{id=@cat.Product_Id})" class="btn btn-danger">Delete</a>
+							<a href="@Url.Action("UpdateProduct","admin",new{id=@cat.Product_Id})" class="btn btn-warning">Edit</a>
+						</td>
+					</tr>
+				}
+			</tbody>
+		</table>
+
+	</div>
+</div>

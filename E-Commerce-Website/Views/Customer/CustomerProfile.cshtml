@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewData["Title"] = "CustomerProfile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model List<Customer>
+
+<div>
+    <div class="row mt-3">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <h4 class="text-center">Customer Profile</h4>
+            <form asp-action="ChangeCustomerProfile" enctype="multipart/form-data" method="post">
+                <input type="hidden" value="@Model[0].Customer_Id" name="Customer_Id" />
+                <img src="@("~/Customer_images/"+Model[0].Customer_Image)" asp-append-version="true" width="250px" height="250px" />
+                <input type="file" name="Customer_Image" class="form-control mb-3 mt-2"/>
+                <input type="hidden" placeholder="Enter a Email" name="Customer_Email" class="form-control mb-3" value="@Model[0].Customer_Email" />
+                <input type="hidden" placeholder="Enter a Name" name="Customer_Name" class="form-control mb-3 mt-2" value="@Model[0].Customer_Name" />
+                <input type="hidden" placeholder="Enter a Password" name="Customer_Password" class="form-control mb-3" value="@Model[0].Customer_Password" />
+                <input type="hidden" placeholder="Enter a phone" name="Customer_Phone" class="form-control mb-3" value="@Model[0].Customer_Phone" />
+                <input type="hidden" placeholder="Enter a Gender" name="Customer_Gender" class="form-control mb-3" value="@Model[0].Customer_Gender" />
+                <input type="hidden" placeholder="Enter a Country" name="Customer_Country" class="form-control mb-3" value="@Model[0].Customer_Country" />
+                <input type="hidden" placeholder="Enter a City" name="Customer_City" class="form-control mb-3" value="@Model[0].Customer_City" />
+                <input type="hidden" placeholder="Enter a Address" name="Customer_Address" class="form-control mb-3" value="@Model[0].Customer_Address" />
+                <input type="submit" value="Change Profile Picture" class="form-control mb-3 btn btn-primary" />
+            </form>
+            <form method="post" asp-action="UpdateCustomerProfile">
+                <input type="hidden" value="@Model[0].Customer_Id" name="Customer_Id"/>
+                <input type="text" placeholder="Enter a Name" name="Customer_Name" class="form-control mb-3 mt-2" value="@Model[0].Customer_Name"/>
+                <input type="text" placeholder="Enter a phone" name="Customer_Phone" class="form-control mb-3" value="@Model[0].Customer_Phone" />
+                <input type="email" placeholder="Enter a Email" name="Customer_Email" class="form-control mb-3" value="@Model[0].Customer_Email" />
+                <input type="password" placeholder="Enter a Password" name="Customer_Password" class="form-control mb-3" value="@Model[0].Customer_Password" />
+                <input type="text" placeholder="Enter a Gender" name="Customer_Gender" class="form-control mb-3" value="@Model[0].Customer_Gender" />
+                <input type="text" placeholder="Enter a Country" name="Customer_Country" class="form-control mb-3" value="@Model[0].Customer_Country" />
+                <input type="text" placeholder="Enter a City" name="Customer_City" class="form-control mb-3" value="@Model[0].Customer_City" />
+                <input type="text" placeholder="Enter a Address" name="Customer_Address" class="form-control mb-3" value="@Model[0].Customer_Address" />
+                <input type="hidden"  name="Customer_Image" class="form-control mb-3" value="@Model[0].Customer_Image" />
+                <input type="submit" class=" form-control btn btn-primary mb-3" value="Update Profile"/>
+            </form>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+</div>
+

@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewData["Title"] = "fetchallproduct";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container mt-3">
+    <h2>All Products</h2>
+    <div class="allproduct mt-3 d-flex justify-content-start flex-wrap">
+        @Html.Partial("fetchProducts", ViewData["product"])
+    </div>
+	@if (TempData["cartmessage"] != null)
+	{
+		<div class="alert alert-success mt-3">
+			@TempData["cartmessage"]
+		</div>
+	}
+</div>
+

@@ -1,0 +1,31 @@
+﻿@model List<Product>
+@foreach (var pro in Model)
+{
+    <div class="product" style="width:280px">
+        <figure class="product-media" >
+            <a asp-action="ProductDetails" asp-controller="Customer" asp-route-id="@pro.Product_Id">
+                <img src="@("~/Product_Images/"+pro.Product_Image)" alt="Product image" class="product-image" asp-append-version=true style="height:200px;object-fit:contain">
+            </a>
+
+            <div class="product-action-vertical">
+                <a href="#" class="btn-product-icon btn-wishlist" title="Add to Wishlist"><span>add to wishlist</span></a>
+            </div><!-- End .product-action-vertical -->
+
+            <div class="product-action">
+                <form method="post" asp-action="AddToCart">
+                    <input type="hidden" name="Prod_Id" value="@pro.Product_Id"/>
+                    <input type="submit" value="Add To Card" class="btn btn-product btn-cart"/>
+                </form> 
+            </div><!-- End .product-action -->
+        </figure><!-- End .product-media -->
+
+        <div class="product-body">
+            <h3 class="product-title">@pro.Product_Name</h3><!-- End .product-title -->
+            <div class="product-price">
+                <span class="new-price">@pro.Product_Price</span>
+            </div><!-- End .product-price -->
+        </div><!-- End .product-body -->
+    </div>
+
+    <!-- End .product -->
+}

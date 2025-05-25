@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewData["Title"] = "DeleteParmissionCart";
+    Layout = "~/Views/Shared/_Dashboard.cshtml";
+}
+
+@model Cart
+<div class="container-fluid px-4">
+	<h2 class="mt-4 text-center text-uppercase text-danger"  style="letter-spacing:4px">
+		Are you sure want to delete this?
+	</h2>
+</div>
+<div class="row">
+	<div class="col-md-2"></div>
+	<div class="col-md-8">
+		<ul class="list-group">
+			<li class="list-group-item">Cart Id: @Model.Cart_Id</li>
+			<li class="list-group-item">Product Name: @Model.Prod_Id</li>
+			<li class="list-group-item">Customer Name: @Model.Cust_Id</li>
+			<li class="list-group-item">Product Quantity: @Model.Product_Quantity</li>
+			<li class="list-group-item">Cart Status: @Model.Cart_Status</li>
+		</ul>
+		<a asp-controller="admin" asp-action="DeleteCart" class="btn btn-danger my-3" asp-route-id="@Model.Cart_Id">Delete Cart</a>
+		<a asp-controller="admin" asp-action="fetchCart" class="btn btn-warning my-3">Back to Cart list</a>
+		
+	</div>
+	<div class="col-md-2"></div>
+</div>

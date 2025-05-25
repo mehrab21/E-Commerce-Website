@@ -1,0 +1,27 @@
+﻿@model Cart
+<div class="container-fluid px-4">
+	<h2 class="mt-4 text-center text-uppercase" style="letter-spacing:4px">
+		Cart Update
+	</h2>
+</div>
+<div class="row">
+	<div class="col-md-2"></div>
+	<div class="col-md-8">
+		<form method="post">
+			<input type="hidden" name="Customer_Id" value="@Model.Cart_Id" />
+			<input type="hidden" name="Prod_Id" value="@Model.Prod_Id" />
+			<input type="hidden" name="Cust_Id" value="@Model.Cust_Id" />
+			<input type="hidden" name="Product_Quantity" value="@Model.Product_Quantity" />
+			
+			<select name="Cart_Status" class="form-select">
+				<option value="0">Peding</option>
+				<option value="1">Order</option>
+			</select>
+			<br />
+			<input type="submit" value="Update Customer" class="form-control btn btn-primary mt-3" />
+			<a asp-action="fetchCart" asp-controller="admin" class="form-control btn btn-danger mt-3">Cancel</a>
+
+		</form>
+	</div>
+	<div class="col-md-2"></div>
+</div>
