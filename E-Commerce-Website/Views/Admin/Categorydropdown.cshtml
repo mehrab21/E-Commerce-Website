@@ -1,9 +1,9 @@
 ﻿@model List<Category>
-<select class="form-select my-3" name="cat_id"> 
+<select class="form-select my-3" name="Cat_Id"> 
 	<option hidden>---Select a Category---</option>
 	@foreach (var cat in Model)
 	{
 		<option value="@cat.Category_Id"
-		selected="@cat.Category_Id==ViewBag.selectedCategoryid">@cat.Category_Name</option>
+				selected="@cat.Category_Id==(int)ViewBag.selectedCategoryid">@cat.Category_Name</option>
 	}
 </select>
